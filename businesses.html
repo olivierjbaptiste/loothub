@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA 6 Business Profit Calculator — Loothub</title>
+<meta name="description" content="Rank every GTA 6 business by profit per hour, payback time, and ROI. Toggle upgrades to see the most profitable business to buy in Grand Theft Auto 6.">
+<meta property="og:title" content="GTA 6 Business Profit Calculator">
+<meta property="og:description" content="Find the most profitable business in GTA 6 — ranked by profit/hour, payback, and ROI.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:image" content="https://loothubgg.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://loothubgg.com/businesses.html">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Loothub</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="businesses.html" class="on">Businesses</a>
+    <a href="map.html">Map</a>
+    <a href="guides.html">Guides</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="tag">Updated for launch</span>
+    <h1>GTA&nbsp;6 <span class="g">Business</span> Calculator</h1>
+    <p>Every business ranked by profit per hour, payback time, and ROI. Toggle upgrades to see what actually pays back fastest.</p>
+  </section>
+
+  <div class="note">
+    <b>Pre-launch preview:</b> these are placeholder example numbers so the tool works today.
+    They get swapped for real GTA&nbsp;6 figures on launch day (Nov&nbsp;19, 2026).
+  </div>
+
+  <div class="controls">
+    <label for="sort">Rank by</label>
+    <select id="sort">
+      <option value="profit">Profit / hour</option>
+      <option value="payback">Fastest payback</option>
+      <option value="roi">Best ROI %</option>
+    </select>
+    <button class="btn" id="reset" type="button">Reset upgrades</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="ad">Ad slot — AdSense goes here once approved</div>
+</main>
+
+<footer><div class="wrap">
+  <p class="dis">Not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
+  "Grand Theft Auto" and "GTA" are trademarks of their respective owners. All figures are community estimates.</p>
+  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Loothub — fan-made tools &amp; guides.</p>
+</div></footer>
+
+<script src="data/businesses.js"></script>
+<script src="js/businesses.js"></script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

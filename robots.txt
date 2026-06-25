@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://loothubgg.com/sitemap.xml
