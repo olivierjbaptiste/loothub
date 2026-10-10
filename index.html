@@ -21,6 +21,12 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://loothubgg.com/">
 <meta name="twitter:card" content="summary_large_image">
+<style>
+.cd-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 6px;min-width:76px;text-align:center}
+.cd-n{display:block;font-family:"Oswald",sans-serif;font-weight:700;font-size:40px;line-height:1;color:var(--cyan)}
+.cd-l{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px}
+@media(max-width:420px){.cd-box{min-width:64px;padding:10px 4px}.cd-n{font-size:30px}}
+</style>
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -40,6 +46,15 @@
     <span class="tag">Releases November 19, 2026</span>
     <h1>Your <span class="g">GTA&nbsp;6</span> toolkit</h1>
     <p>Interactive calculators, maps and guides — built to go live the moment Vice City opens up.</p>
+
+    <div id="countdown" aria-label="Countdown to GTA 6 launch"
+         style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px">
+      <div class="cd-box"><span class="cd-n" id="cd-d">—</span><span class="cd-l">Days</span></div>
+      <div class="cd-box"><span class="cd-n" id="cd-h">—</span><span class="cd-l">Hours</span></div>
+      <div class="cd-box"><span class="cd-n" id="cd-m">—</span><span class="cd-l">Mins</span></div>
+      <div class="cd-box"><span class="cd-n" id="cd-s">—</span><span class="cd-l">Secs</span></div>
+    </div>
+    <p id="cd-note" style="color:var(--muted);font-size:13px;margin-top:12px">until Vice City opens up</p>
   </section>
 
   <section id="tools">
@@ -78,6 +93,26 @@
   <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
   <p>&copy; 2026 Loothub — fan-made tools &amp; guides.</p>
 </div></footer>
+<script>
+(function(){
+  var launch=new Date('2026-11-19T00:00:00-05:00');
+  var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
+      m=document.getElementById('cd-m'),s=document.getElementById('cd-s'),
+      note=document.getElementById('cd-note');
+  if(!d) return;
+  function p(n){return (n<10?'0':'')+n;}
+  function upd(){
+    var diff=launch-new Date();
+    if(diff<=0){ d.textContent='0';h.textContent='00';m.textContent='00';s.textContent='00';
+      if(note) note.textContent='GTA 6 is out now — welcome to Vice City.'; return; }
+    d.textContent=Math.floor(diff/86400000);
+    h.textContent=p(Math.floor((diff%86400000)/3600000));
+    m.textContent=p(Math.floor((diff%3600000)/60000));
+    s.textContent=p(Math.floor((diff%60000)/1000));
+  }
+  upd(); setInterval(upd,1000);
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
