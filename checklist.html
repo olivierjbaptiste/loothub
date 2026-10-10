@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA 6 100% Completion Checklist &amp; Progress Tracker (2026) | Loothub</title>
+<meta name="description" content="Interactive GTA 6 100% completion checklist — track story missions, collectibles, activities and challenges toward full completion. Your progress saves automatically in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="GTA 6 100% Completion Checklist & Progress Tracker">
+<meta property="og:description" content="Track your GTA 6 100% completion — missions, collectibles, activities and challenges. Progress saves automatically.">
+<meta property="og:image" content="https://loothubgg.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://loothubgg.com/checklist.html">
+<link rel="canonical" href="https://loothubgg.com/checklist.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"GTA 6 100% Completion Checklist","url":"https://loothubgg.com/checklist.html","applicationCategory":"GameApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Interactive GTA 6 100% completion checklist and progress tracker with browser-saved progress.","publisher":{"@type":"Organization","name":"Loothub","url":"https://loothubgg.com/"}}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921034205011428" crossorigin="anonymous"></script>
+<style>
+.ck-cat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+.ck-cat-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;cursor:pointer}
+.ck-cat-h h2{font-family:"Oswald",sans-serif;font-size:19px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:0}
+.ck-cat-count{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.ck-cat-count b{color:var(--cyan)}
+.ck-item{display:flex;align-items:flex-start;gap:11px;padding:9px 6px;border-top:1px solid var(--line);cursor:pointer;font-size:15px}
+.ck-item:hover{color:#fff}
+.ck-box{width:20px;height:20px;border:2px solid var(--line);border-radius:6px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#0c0a18;transition:.12s}
+.ck-item.done .ck-box{background:var(--grad);border-color:transparent}
+.ck-item.done .ck-label{color:var(--muted);text-decoration:line-through}
+.ck-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:4px 0 20px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">Loothub</a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="preorder.html">Pre-Order</a>
+    <a href="businesses.html">Businesses</a>
+    <a href="map.html">Map</a>
+    <a href="guides.html">Guides</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section style="padding:34px 0 10px">
+    <span class="tag">100% Completion</span>
+    <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,6vw,46px);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px">GTA 6 100% Checklist</h1>
+    <p style="color:var(--muted);font-size:17px;max-width:680px">Track everything on the road to 100% completion — missions, collectibles, activities and challenges. Tick items off and your progress saves automatically in your browser.</p>
+  </section>
+
+  <div class="note"><b>Preview tracker.</b> This is built from GTA 6's confirmed features and how completion has worked across the series. The moment the game launches on <b>November 19, 2026</b>, we'll swap in the exact 100% requirements and counts — your checked-off progress carries over.</div>
+
+  <!-- overall progress -->
+  <div class="progress-label"><span>Overall completion</span><span><b id="done-n">0</b> / <span id="total-n">0</span> &nbsp;·&nbsp; <b id="pct">0%</b></span></div>
+  <div class="progress-bar"><div class="progress-fill" id="bar"></div></div>
+
+  <div class="ck-tools">
+    <button class="btn" id="collapse-all" type="button">Collapse all</button>
+    <button class="btn" id="reset" type="button">Reset progress</button>
+  </div>
+
+  <div id="checklist"></div>
+
+  <div class="ad">Ad</div>
+
+  <div class="cta-box">
+    <p>Planning your route to 100%? Pair this with the map and money tools.</p>
+    <a class="cta" href="guides.html">Browse all GTA 6 guides</a>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
+  <p class="dis">Not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
+  "Grand Theft Auto" and "GTA" are trademarks of their respective owners. This is a preview tracker based on confirmed features; the full 100% requirements will be added at launch.</p>
+  <p>&copy; 2026 Loothub — fan-made tools &amp; guides.</p>
+</div></footer>
+
+<script>
+/* ============================================================
+   GTA 6 100% CHECKLIST DATA  —  *** PREVIEW ***
+   At launch (Nov 19, 2026): replace the items below with the
+   real 100% requirements the community confirms. Each item just
+   needs a unique "id" (never reuse an id) and a "label".
+   Nothing else in this file needs to change — progress, saving
+   and the bars all work off this list automatically.
+   ============================================================ */
+var CHECKLIST = [
+  { cat:"Story & Missions", items:[
+    {id:"story_prologue", label:"Complete the prologue"},
+    {id:"story_main",     label:"Complete all main story missions"},
+    {id:"story_heists",   label:"Complete every heist"},
+    {id:"story_credits",  label:"Finish the story (roll the credits)"}
+  ]},
+  { cat:"Collectibles", items:[
+    {id:"col_packages",  label:"Find all hidden packages"},
+    {id:"col_jumps",     label:"Clear all stunt jumps"},
+    {id:"col_cards",     label:"Collect all collectible cards"},
+    {id:"col_landmarks", label:"Visit all landmarks / photo spots"}
+  ]},
+  { cat:"Activities & Hobbies", items:[
+    {id:"act_streetrace", label:"Win a street race"},
+    {id:"act_offroad",    label:"Win an off-road race"},
+    {id:"act_wrestling",  label:"Win a wrestling match"},
+    {id:"act_pool",       label:"Win a game of pool"},
+    {id:"act_golf",       label:"Play a round of mini-golf"},
+    {id:"act_kayak",      label:"Go kayaking"},
+    {id:"act_zoo",        label:"Visit the zoo"},
+    {id:"act_gym",        label:"Work out at a gym"}
+  ]},
+  { cat:"Side Content", items:[
+    {id:"side_strangers", label:"Complete all side missions / strangers"},
+    {id:"side_events",    label:"Trigger all random events"},
+    {id:"side_property",  label:"Buy a property or business"}
+  ]},
+  { cat:"Challenges & Lifestyle", items:[
+    {id:"ch_skill",   label:"Max out a character skill"},
+    {id:"ch_weapon",  label:"Complete the weapon challenges"},
+    {id:"ch_driving", label:"Complete the driving challenges"},
+    {id:"ch_fitness", label:"Reach peak fitness (diet, exercise, sleep)"},
+    {id:"ch_custom",  label:"Fully customize a vehicle"}
+  ]}
+];
+
+var LS_KEY='gta6_100_v1';
+function loadDone(){ try{ return new Set(JSON.parse(localStorage.getItem(LS_KEY))||[]); }catch(e){ return new Set(); } }
+function saveDone(s){ try{ localStorage.setItem(LS_KEY, JSON.stringify(Array.from(s))); }catch(e){} }
+var done = loadDone();
+
+function totalItems(){ var n=0; CHECKLIST.forEach(function(c){ n+=c.items.length; }); return n; }
+
+function updateProgress(){
+  var total=totalItems(), d=0;
+  CHECKLIST.forEach(function(c){ c.items.forEach(function(it){ if(done.has(it.id)) d++; }); });
+  document.getElementById('done-n').textContent=d;
+  document.getElementById('total-n').textContent=total;
+  var pct= total? Math.round(d/total*100):0;
+  document.getElementById('pct').textContent=pct+'%';
+  document.getElementById('bar').style.width=pct+'%';
+  // per-category counts
+  CHECKLIST.forEach(function(c,ci){
+    var cd=0; c.items.forEach(function(it){ if(done.has(it.id)) cd++; });
+    var el=document.getElementById('cnt-'+ci); if(el) el.innerHTML='<b>'+cd+'</b> / '+c.items.length;
+  });
+}
+
+function toggle(id, row){
+  if(done.has(id)){ done.delete(id); row.classList.remove('done'); }
+  else { done.add(id); row.classList.add('done'); }
+  saveDone(done); updateProgress();
+}
+
+function render(){
+  var root=document.getElementById('checklist'); var html='';
+  CHECKLIST.forEach(function(c,ci){
+    html+='<div class="ck-cat" data-ci="'+ci+'">'
+      +'<div class="ck-cat-h" onclick="toggleCat('+ci+')"><h2>'+c.cat+'</h2>'
+      +'<span class="ck-cat-count" id="cnt-'+ci+'"></span></div>'
+      +'<div class="ck-body" id="body-'+ci+'">';
+    c.items.forEach(function(it){
+      var on=done.has(it.id);
+      html+='<div class="ck-item'+(on?' done':'')+'" onclick="toggle(\''+it.id+'\',this)">'
+        +'<span class="ck-box">'+(on?'✓':'')+'</span>'
+        +'<span class="ck-label">'+it.label+'</span></div>';
+    });
+    html+='</div></div>';
+  });
+  root.innerHTML=html;
+  // keep check glyphs in sync on toggle
+  root.addEventListener('click', function(e){
+    var row=e.target.closest('.ck-item'); if(!row) return;
+    var box=row.querySelector('.ck-box'); if(box) box.textContent=row.classList.contains('done')?'✓':'';
+  });
+  updateProgress();
+}
+
+function toggleCat(ci){
+  var b=document.getElementById('body-'+ci); if(b) b.style.display=(b.style.display==='none')?'block':'none';
+}
+
+document.getElementById('reset').addEventListener('click', function(){
+  if(confirm('Reset all checklist progress? This cannot be undone.')){
+    done=new Set(); saveDone(done); render();
+  }
+});
+var collapsed=false;
+document.getElementById('collapse-all').addEventListener('click', function(){
+  collapsed=!collapsed;
+  CHECKLIST.forEach(function(c,ci){ var b=document.getElementById('body-'+ci); if(b) b.style.display=collapsed?'none':'block'; });
+  this.textContent=collapsed?'Expand all':'Collapse all';
+});
+
+render();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
