@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA 6 Interactive Map — Collectibles &amp; Locations | Loothub</title>
-<meta name="description" content="Interactive GTA 6 map of Leonida and Vice City. Filter every collectible by type, find locations, and check off your progress toward 100% completion.">
-<meta property="og:title" content="GTA 6 Interactive Map — Collectibles &amp; Locations">
-<meta property="og:description" content="Filter every GTA 6 collectible by type and track your progress on an interactive map of Leonida.">
-<meta property="og:type" content="website">
+<title>GTA 6 Map: The State of Leonida &amp; Vice City — Loothub</title>
+<meta name="description" content="What's confirmed about the GTA 6 map — the state of Leonida, the return of Vice City, and the regions Rockstar has shown in the trailers. Plus what's still unknown until launch.">
+<meta property="og:title" content="GTA 6 Map: Leonida &amp; Vice City">
+<meta property="og:description" content="The confirmed GTA 6 setting — Leonida and Vice City — and the regions shown so far.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -17,11 +21,6 @@
 <meta property="og:url" content="https://loothubgg.com/map.html">
 <link rel="canonical" href="https://loothubgg.com/map.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="vendor/leaflet.css">
-<link rel="stylesheet" href="css/style.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921034205011428" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -29,49 +28,51 @@
   <a class="brand" href="index.html">Loothub</a>
   <nav class="nav">
     <a href="index.html">Home</a>
+    <a href="release-date.html">Release Date</a>
     <a href="preorder.html">Pre-Order</a>
-    <a href="businesses.html">Businesses</a>
-    <a href="map.html" class="on">Map</a>
     <a href="guides.html">Guides</a>
+    <a href="map.html" class="on">Map</a>
     <a href="about.html">About</a>
   </nav>
 </div></header>
 
 <main class="wrap">
-  <section class="hero" style="padding:34px 0 16px">
-    <h1 style="font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,5vw,42px);text-transform:uppercase;letter-spacing:.5px">GTA&nbsp;6 Interactive Map</h1>
-    <p style="color:var(--muted);max-width:640px;margin:8px auto 0">Filter collectibles by type and click each one to check it off. Your progress saves automatically in your browser.</p>
-  </section>
+  <article class="article">
+    <h1>The GTA 6 Map: The State of Leonida</h1>
+    <p class="lead">GTA 6 returns to Vice City — but this time it's one city inside a whole state. Here's what Rockstar has actually shown of Leonida, and what's still unknown until the map goes live at launch.</p>
+    <p class="meta">Updated October 2026 · Based on official trailers and Rockstar materials</p>
 
-  <div class="note"><b>Pre-launch preview:</b> this is a placeholder map of Leonida with example markers so the tool works today. At launch (Nov&nbsp;19, 2026) it's swapped for the real GTA&nbsp;6 map with verified collectible locations.</div>
+    <h2>What's confirmed: Leonida and Vice City</h2>
+    <p>GTA 6 is set in the <strong>state of Leonida</strong>, Rockstar's fictional take on modern-day Florida, with <strong>Vice City</strong> — the series' long-running Miami analog — as its centerpiece. This was established with the first official trailer and reinforced in Rockstar's follow-up marketing. Unlike Vice City's earlier appearances, the city is now set within a far larger surrounding state rather than being the whole map.</p>
 
-  <div class="map-controls" id="type-chips"></div>
-  <div class="map-controls" style="margin-bottom:10px">
-    <button class="map-btn" id="toggle-found" type="button">Hide found</button>
-    <button class="map-btn" id="reset-map" type="button">Reset progress</button>
-  </div>
+    <h2>The regions Rockstar has named</h2>
+    <p>Rockstar has officially named several regions across Leonida (see Rockstar's official <a href="https://www.rockstargames.com/VI/media/screenshots" rel="nofollow noopener" target="_blank">GTA VI screenshots</a>):</p>
+    <ul>
+      <li><strong>Vice City</strong> — the dense, neon-lit coastal metropolis modeled on Miami; the urban heart of the map.</li>
+      <li><strong>Leonida Keys</strong> — a tropical island archipelago evoking the Florida Keys.</li>
+      <li><strong>Grassrivers</strong> — the Everglades-style wetlands.</li>
+      <li><strong>Port Gellhorn</strong> — a coastal town on Leonida's quieter coast.</li>
+      <li><strong>Ambrosia</strong> — an inland area associated with a sugar refinery and a local biker gang.</li>
+      <li><strong>Mount Kalaga National Park</strong> — a wilderness area along the state's northern border.</li>
+    </ul>
+    <p>What's <strong>not</strong> confirmed is the full list of neighborhoods within each region and how they connect. We're not publishing invented district names or a fabricated street map to fill that gap — plenty of sites do, and it isn't reliable.</p>
 
-  <div class="progress-label">
-    <span id="prog-text"><b>0 / 0</b> collectibles found</span>
-    <span id="prog-pct">0%</span>
-  </div>
-  <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+    <h2>How big is the map?</h2>
+    <p>Rockstar has not published official map dimensions. Expect the usual pre-launch estimates and leaks to circulate; we'll only add figures here once there's an official source or a verified in-game measurement after release.</p>
 
-  <div id="map"></div>
-
-  <p style="color:var(--muted);font-size:13px;margin:16px 0 0">Tip: scroll to zoom, drag to pan. New to the regions? Read the <a href="map-guide.html">map &amp; setting guide</a> or the <a href="completion-guide.html">100% completion guide</a>.</p>
+    <div class="cta-box">
+      <p><strong>Our interactive collectibles map is in development.</strong> We're building it on vendored, open-source mapping, but we won't fill it with placeholder markers. Once the game is out and locations are verified, it will let you filter collectibles by type and check off your progress as you go.</p>
+      <a class="cta" href="characters.html">Meet the characters of Leonida</a>
+    </div>
+  </article>
 </main>
 
 <footer><div class="wrap">
-  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="privacy.html">Privacy Policy</a></p>
-  <p class="dis">Not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
-  "Grand Theft Auto" and "GTA" are trademarks of their respective owners.</p>
-  <p>&copy; 2026 Loothub — fan-made tools &amp; guides.</p>
+  <p class="dis">Loothub is an unofficial fan-made site. Not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
+  "Grand Theft Auto", "GTA" and all related names are trademarks of their respective owners. All game information is drawn from official Rockstar announcements and reputable reporting; where something is unconfirmed we say so.</p>
+  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="preorder.html">Pre-Order</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="terms.html">Terms</a></p>
+  <p>&copy; 2026 Loothub &mdash; fan-made GTA 6 guides.</p>
 </div></footer>
-
-<script src="vendor/leaflet.js"></script>
-<script src="data/collectibles.js"></script>
-<script src="js/map.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

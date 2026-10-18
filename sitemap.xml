@@ -16,5 +16,8 @@
   <url><loc>https://loothubgg.com/map-guide.html</loc><priority>0.8</priority></url>
   <url><loc>https://loothubgg.com/guides.html</loc><priority>0.7</priority></url>
   <url><loc>https://loothubgg.com/about.html</loc><priority>0.5</priority></url>
+  <url><loc>https://loothubgg.com/contact.html</loc><priority>0.5</priority></url>
   <url><loc>https://loothubgg.com/privacy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://loothubgg.com/disclaimer.html</loc><priority>0.3</priority></url>
+  <url><loc>https://loothubgg.com/terms.html</loc><priority>0.3</priority></url>
 </urlset>
