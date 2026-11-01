@@ -1,63 +1,34 @@
-# Loothub — GTA 6 Companion Site
+# LootHubGG — Independent GTA 6 companion site
 
-A static companion site for GTA 6. Ships with a working **Business ROI Calculator**;
-map / checklist / money-methods slots are stubbed for launch day.
+Static HTML/CSS/JavaScript website. The public pages cover **confirmed** release dates,
+platforms, editions, characters, and settings, alongside clearly labeled pre-launch
+analysis. There is no backend and no build step.
 
-## Structure
+## Locally preview
 
-```
-gta6-companion/
-├── index.html          Landing page + tool grid
-├── businesses.html     Business ROI Calculator (the live tool)
-├── css/style.css       Shared Vice City theme
-├── js/businesses.js    Calculator logic (reads window.GTA_DATA)
-├── data/businesses.js  >>> THE DATA YOU SWAP AT LAUNCH <<<
-├── robots.txt
-└── sitemap.xml
-```
+Run `python -m http.server 8000` from the repository root, then open
+`http://localhost:8000/` in Chrome. For the launch planner open
+`http://localhost:8000/launch-planner.html`.
 
-There is **no backend**. Everything runs in the browser, so it's fast, free to host,
-and great for SEO + ads.
+## Current tools and status
 
-## Preview locally
+- `launch-planner.html` / `js/launch-planner.js`: working browser-only launch checklist,
+  platform and edition selector, official store links, US price comparison.
+  Choices and checked steps use localStorage (no server database).
+- `map.html`: verified setting/region explainer; the collectible tracking feature
+  is **not** live until verified game data exists.
+- `checklist.html`: editorial pre-launch 100%-completion explainer, **not** a
+  functional 100%-completion tracker.
+- `businesses.html`: explanatory guide only; do not publish unverified ROI numbers.
+- Legacy `js/map.js`, `js/businesses.js` and `data/` are prototypes; their data
+  is not authoritative and should not be promoted to the public site until verified.
 
-Just double-click `index.html` — it opens in your browser and works (data is loaded via
-a `<script>` tag, not `fetch`, so no local server needed). Selections save via
-`localStorage`.
+## Publishing safety
 
-## Deploy (free, no cold starts)
+Keep AdSense site-verification code and `ads.txt` unchanged unless they need an
+intentional authorized update. Verify official GTA 6 details on Rockstar's website
+before updating content. Never invent prices, game mechanics or map/collectible data.
 
-Use **Cloudflare Pages** or **Netlify** — both are free, fast, and give a custom domain.
-
-- **Netlify:** drag the `gta6-companion` folder onto https://app.netlify.com/drop, or connect the repo.
-- **Cloudflare Pages:** connect the GitHub repo, framework preset = *None*, build command = *(blank)*, output dir = `/`.
-
-Either way: push to GitHub, it auto-deploys — same flow you already use.
-
-## Launch-day workflow (Nov 19, 2026)
-
-1. Open `data/businesses.js`.
-2. Replace the placeholder businesses with the real GTA 6 numbers as they're datamined
-   (`setupCost`, `baseProfitPerHour`, and each upgrade's `cost` / `profitBonusPerHour`).
-3. Commit + push. The calculator updates automatically — no other file changes.
-
-Speed here is the whole game: being live and accurate in the first 72 hours is the edge.
-
-## Monetization checklist
-
-- [ ] Apply to **Google AdSense early** (needs live content first — that's why the site goes up now).
-- [ ] Drop your AdSense code into the `.ad` slots in `index.html` / `businesses.html`.
-- [ ] Add affiliate links (guides, gift cards, hardware) where natural.
-- [ ] At ~50k sessions/month, apply to **Mediavine / Raptive** (much higher ad rates).
-
-## SEO basics
-
-- Page `<title>`s already target high-intent searches ("GTA 6 business profit calculator").
-- Add new guide pages as separate `.html` files and list them in `sitemap.xml`.
-- Submit `sitemap.xml` in Google Search Console once deployed.
-
-## Naming / legal
-
-Pick a brand that is **not** a Rockstar trademark (the placeholder here is "VI Hub").
-Using "GTA 6" descriptively in titles and content is standard for fan tools; using it
-as your brand/domain name is not. The footer disclaimer is already in place.
+When you can sign in to GitHub again, publish from the isolated
+`adsense-quality-improvements` branch after testing. Do not overwrite unrelated
+work or make direct edits to `main` without review.

@@ -125,3 +125,59 @@ footer .dis{max-width:680px;margin:0 auto 10px;font-size:11px;opacity:.8}
 .leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
 .leaflet-bar a{background:var(--card);color:var(--text);border-color:var(--line)}
 .leaflet-bar a:hover{background:var(--bg2)}
+
+/* Launch planner — practical pre-release checklist */
+.launch-article{max-width:850px}
+.planner-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 30px}
+.planner-facts>div,.planner-panel,.planner-compare-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.planner-facts span,.planner-kicker{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.planner-facts strong{font-family:"Oswald",sans-serif;font-size:23px;line-height:1.2;display:block;margin:5px 0;color:var(--cyan)}
+.planner-facts small,.planner-summary small{display:block;color:var(--muted);font-size:12px;line-height:1.5}
+.planner-panel{margin-bottom:26px}
+.planner-panel h2{margin:0 0 6px}
+.planner-panel>p{color:var(--muted)}
+.planner-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.planner-controls label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.planner-controls select{display:block;margin-top:8px;width:100%;min-width:0;padding:12px;background:var(--bg2);color:var(--text);border:1px solid var(--line);border-radius:9px;font:inherit;font-size:14px;letter-spacing:0;text-transform:none}
+.planner-controls select:focus-visible,.planner-task input:focus-visible,.planner-reset:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.planner-summary{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;margin:16px 0}
+.planner-summary strong{display:block;margin:6px 0;font-family:"Oswald",sans-serif;font-size:31px;color:var(--gold)}
+.planner-summary strong.planner-choice{font-family:"Inter",sans-serif;font-size:17px;color:var(--text);line-height:1.45}
+.planner-info{font-size:14px}
+.planner-warning{background:rgba(255,211,78,.08);border:1px solid var(--gold);border-radius:9px;padding:10px 12px;color:var(--gold)!important;font-size:14px}
+.planner-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:19px}
+.planner-links .cta{background:var(--grad);color:white;padding:11px 19px;border-radius:10px;font-weight:700}
+.planner-tasks{display:grid;gap:10px;margin:15px 0}
+.planner-task{display:flex;align-items:flex-start;gap:13px;padding:14px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.planner-task:hover{border-color:var(--cyan)}
+.planner-task input{margin-top:5px;accent-color:var(--pink);width:17px;height:17px;flex:none}
+.planner-task strong{display:block;font-size:14px;color:var(--text)}
+.planner-task small{display:block;font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
+.planner-task:has(input:checked) strong{text-decoration:line-through;color:var(--muted)}
+.planner-reset{margin-top:5px}
+.planner-privacy{margin-top:13px!important;font-size:12px}
+.planner-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.planner-compare-card h3{font-family:"Oswald",sans-serif;font-size:22px;text-transform:uppercase;margin-bottom:8px}
+.planner-compare-card .planner-cost{font-family:"Oswald",sans-serif;font-size:29px;color:var(--cyan);margin-bottom:10px}
+.planner-compare-card .planner-cost small{font-family:"Inter",sans-serif;font-size:11px;color:var(--muted)}
+.planner-compare-card p:not(.planner-cost){font-size:14px;color:var(--muted)}
+.planner-sources{border-top:1px solid var(--line);margin-top:28px;padding-top:12px}
+.planner-sources li{overflow-wrap:anywhere}
+@media(max-width:690px){.planner-facts,.planner-controls{grid-template-columns:1fr}.planner-compare,.planner-summary{grid-template-columns:1fr}.planner-facts strong{font-size:21px}}
+
+/* User-input example ROI tool (not real GTA 6 business data) */
+.roi-panel{scroll-margin-top:86px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:34px 0}
+.roi-panel h2{margin:0 0 12px}
+.roi-panel>p{color:var(--muted)}
+.roi-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0}
+.roi-inputs label{display:block;font-size:13px;color:var(--text);font-weight:600}
+.roi-inputs label span{font-size:11px;color:var(--muted);font-weight:400}
+.roi-inputs input{width:100%;display:block;margin-top:6px;padding:12px;background:var(--bg2);border:1px solid var(--line);border-radius:9px;color:var(--text);font:inherit;font-size:16px}
+.roi-inputs input:focus-visible,.roi-form button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.roi-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.roi-results>div{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.roi-results span{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.roi-results strong{display:block;font-family:"Oswald",sans-serif;font-size:24px;color:var(--cyan);overflow-wrap:anywhere}
+.roi-panel .roi-explain{font-size:13px;line-height:1.65}
+.roi-error{color:var(--bad)!important;font-weight:600;min-height:1em}
+@media(max-width:620px){.roi-panel{padding:17px}.roi-inputs,.roi-results{grid-template-columns:1fr}}
