@@ -40,7 +40,7 @@
   <article class="article">
     <h1>GTA 6 Businesses &amp; Money: What's Confirmed So Far</h1>
     <p class="lead">Rockstar hasn't detailed GTA 6's in-game economy yet. Here's what is actually confirmed today, what the Ultimate Edition reveals about ownable businesses, and how property and passive income have worked across the series — kept clearly separate.</p>
-    <p class="meta">Updated October 2026 · Confirmed facts vs. series history are labeled</p>
+    <p class="meta">Updated November 1, 2026 · Confirmed facts vs. series history are labeled</p>
 
     <h2>What's confirmed about GTA 6 businesses</h2>
     <p>Very little about the GTA 6 money economy has been officially detailed. What is clear is that GTA 6 ships on November 19, 2026 and includes a single-player campaign. Rockstar has <strong>not</strong> announced the details of any online mode, and has not published business types, prices, or earnings — so anyone quoting exact "profit per hour" numbers for GTA 6 right now is guessing.</p>
@@ -59,9 +59,33 @@
     <h2>What this might suggest (clearly labeled as our speculation)</h2>
     <p>The following is <strong>our opinion, not a confirmed feature</strong>: because the Ultimate Edition locations are customization and lifestyle venues (vehicles, mods, clothing), and because past GTA games have let players own income-generating property, it wouldn't be surprising if GTA 6 included some form of ownable business. But that is a guess about the direction of the game, not something Rockstar has stated, and it's entirely possible these locations are cosmetic or service venues rather than earners. We'll replace this with facts the moment Rockstar details the actual systems.</p>
 
+    <section id="roi-calculator" class="roi-panel" aria-labelledby="roi-heading">
+      <span class="tag">Interactive example · Your own numbers</span>
+      <h2 id="roi-heading">Business ROI &amp; payback calculator</h2>
+      <p>Try your own figures to see how purchase costs and operating expenses change the payback period. <strong>This is a hypothetical planning tool, not a list of confirmed GTA 6 businesses, prices or earnings.</strong> Use the same kind of real-world measured hour across every input.</p>
+      <form id="roi-form" class="roi-form" novalidate>
+        <div class="roi-inputs">
+          <label>Purchase price <span>(in-game $)</span><input name="purchase" type="number" min="0" max="1000000000000" step="any" value="100000" required></label>
+          <label>Upgrades / setup <span>(in-game $)</span><input name="upgrades" type="number" min="0" max="1000000000000" step="any" value="0" required></label>
+          <label>Revenue per hour <span>(in-game $)</span><input name="revenue" type="number" min="0" max="1000000000000" step="any" value="8000" required></label>
+          <label>Operating cost per hour <span>(in-game $)</span><input name="costPerHour" type="number" min="0" max="1000000000000" step="any" value="2000" required></label>
+          <label>Comparison period <span>(real-world hours)</span><input name="hours" type="number" min="0.1" max="1000000000000" step="any" value="20" required></label>
+        </div>
+        <p id="roi-error" class="roi-error" role="alert"></p>
+        <button id="roi-reset" class="btn" type="button">Reset to example</button>
+      </form>
+      <div class="roi-results" aria-live="polite" aria-atomic="true">
+        <div><span>Net income / hour</span><strong id="roi-net">$6,000</strong></div>
+        <div><span>Hours to pay back</span><strong id="roi-payback">16.7 hours</strong></div>
+        <div><span>Net return after period</span><strong id="roi-return">$20,000</strong></div>
+        <div><span>ROI over selected period</span><strong id="roi-percent">20.0%</strong></div>
+      </div>
+      <p class="roi-explain">Net income = revenue − operating costs. Total investment = purchase + upgrades. ROI = ((net income × hours) − total investment) ÷ total investment × 100. Negative ROI means your example has not yet recovered its initial investment. Zero investment produces no meaningful ROI percentage.</p>
+      <p class="roi-explain"><strong>Privacy:</strong> Calculations run in your browser. Entries are not submitted, sent to Loothub or saved.</p>
+    </section>
     <div class="cta-box">
-      <p><strong>Our business ROI calculator is in development.</strong> Rather than rank businesses using invented numbers, we're holding the tool back until the game's actual business mechanics are known and verified figures are available. If and when GTA 6 includes ownable, income-generating businesses and that data is confirmed, we aim to rank them by profit per hour, payback time and ROI — but that depends entirely on the mechanics and data existing, which isn't a given today.</p>
-      <a class="cta" href="preorder.html">See the confirmed editions &amp; bonuses</a>
+      <p>Actual GTA 6 business costs, earnings and ownership mechanics remain unverified. This calculator uses only numbers <em>you</em> enter; it does not rate or recommend named GTA 6 businesses.</p>
+      <a class="cta" href="business-guide.html">Read our business comparison guide</a>
     </div>
   </article>
 </main>
@@ -73,5 +97,6 @@
   <p>&copy; 2026 Loothub &mdash; fan-made GTA 6 guides.</p>
 </div></footer>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="js/roi-example.js" defer></script>
 </body>
 </html>
