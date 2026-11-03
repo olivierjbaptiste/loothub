@@ -29,7 +29,7 @@
     ['platform', 'Confirm your console', 'Rockstar lists PS5 and Xbox Series X|S; there is no announced PC edition.'],
     ['region', 'Check your account region', 'Make sure your store or download code is compatible with the country of your console account.'],
     ['budget', 'Confirm the total at checkout', 'The price shown above excludes taxes; verify the local store and any additional charges before buying.'],
-    ['space', 'Check download space and internet access', 'Confirm available storage and a reliable connection; Rockstar has not published a storage requirement on this page.'],
+    ['space', 'Check download space and internet access', 'Rockstar says the GTA 6 pre-load requires up to 212 GB depending on your device. Free enough space and confirm reliable internet.'],
     ['offers', 'Read the offer terms', 'Review the Vintage Vice City Pack and eligible digital GTA+ offer, including any subscription conditions.'],
     ['launch', 'Plan your first play session', 'Launch is November 19, 2026. Check your local storefront for the precise unlock time.']
   ];
@@ -37,9 +37,9 @@
     var list = common.slice(0, 3);
     if (state.format === 'digital') {
       list.push(['digital', 'Confirm the purchase is in your game library', 'Use the official store for your selected console; do not share account credentials.']);
-      list.push(['preload', 'Pre-load on November 12 if available', 'Rockstar says digital pre-loading begins November 12 at local midnight.']);
+      list.push(['preload', 'Pre-load on November 10 if available', state.platform === 'ps5' ? 'Rockstar says PS5 pre-loading starts November 10 at midnight local time.' : 'Rockstar says Xbox Series X|S pre-loading starts November 10 globally at 12 a.m. GMT.']);
     } else {
-      list.push(['code', 'Collect your code-in-box Standard copy', 'This package contains a download code, not a disc. Retailer delivery timing may vary.']);
+      list.push(['code', 'Collect your code-in-box Standard copy from November 12', 'Rockstar expects code-in-box copies at retailers beginning November 12. The box contains a download code, not a disc; timing varies by retailer.']);
       list.push(['redeem', 'Redeem the code and start your download', 'Redeem it in the correct account region once you receive it.']);
     }
     return list.concat(common.slice(3));
@@ -86,8 +86,8 @@
     var formatName = state.format === 'code' ? 'Code-in-box' : 'Digital';
     document.getElementById('plan-choice').textContent = platformName + ' · ' + editionName + ' · ' + formatName;
     document.getElementById('plan-format-note').textContent = state.format === 'digital'
-      ? 'Digital pre-loading begins November 12.'
-      : 'The box contains a redeemable download code, not a game disc.';
+      ? (state.platform === 'ps5' ? 'PS5 digital pre-load: Nov 10, midnight local time.' : 'Xbox digital pre-load: Nov 10, 12 a.m. GMT.')
+      : 'Code-in-box copies start Nov 12; redeem the download code (no disc).';
     document.getElementById('plan-edition-note').textContent = state.edition === 'ultimate'
       ? 'Ultimate adds optional in-game extras. The Standard edition can be upgraded later if you prefer to decide after launch.'
       : 'Standard includes the full game. You can buy the Ultimate Edition upgrade separately later.';
