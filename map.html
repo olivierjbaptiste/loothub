@@ -21,6 +21,21 @@
 <meta property="og:url" content="https://loothubgg.com/map.html">
 <link rel="canonical" href="https://loothubgg.com/map.html">
 <meta name="twitter:card" content="summary_large_image">
+<style>
+.db-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.db-search{flex:1 1 220px;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit}
+.chip{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+.chip:hover{border-color:var(--purple)}
+.chip.on{background:var(--grad);border:none;color:#fff}
+.loc{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 14px;margin:10px 0}
+.loc .lh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.loc .ln{font-weight:700}
+.loc .lc{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--cyan);border:1px solid #1d4a4c;border-radius:999px;padding:2px 8px}
+.loc .li{color:var(--muted);font-size:13px;margin:6px 0 0}
+.loc .ls{font-size:12px;color:var(--muted);margin-top:6px}
+.db-empty{color:var(--muted);text-align:center;padding:22px 10px;border:1px dashed var(--line);border-radius:10px}
+.vstatus{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;border:1px solid var(--line);color:var(--muted)}
+</style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921034205011428" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -40,7 +55,7 @@
   <article class="article">
     <h1>The GTA 6 Map: The State of Leonida</h1>
     <p class="lead">GTA 6 returns to Vice City — but this time it's one city inside a whole state. Now that the game is out, here's what Rockstar confirmed about Leonida, and how we're verifying the rest in-game before we add it.</p>
-    <p class="meta">Updated November 2026 · Based on official materials and verified in-game findings</p>
+    <p class="meta">Updated November 2026 · Based on official materials and published reporting; LootHubGG gameplay verification pending</p>
 
     <h2>What's confirmed: Leonida and Vice City</h2>
     <p>GTA 6 is set in the <strong>state of Leonida</strong>, Rockstar's fictional take on modern-day Florida, with <strong>Vice City</strong> — the series' long-running Miami analog — as its centerpiece. This was established with the first official trailer and reinforced in Rockstar's follow-up marketing. Unlike Vice City's earlier appearances, the city is now set within a far larger surrounding state rather than being the whole map.</p>
@@ -60,24 +75,15 @@
     <h2>How big is the map?</h2>
     <p>Rockstar has not published official map dimensions. We'll only add figures here once there's an official source or a verified in-game measurement — not an estimate or a leaked number.</p>
 
-    <h2>Verified post-launch discoveries</h2>
-    <p>Now that GTA 6 is out, this is where we log confirmed map details — real region boundaries, landmarks and collectible locations — <strong>as we verify them in-game</strong>. Nothing is added until it's confirmed; we don't publish invented coordinates or leaked markers. The table below is still being populated — <strong>no locations are verified yet</strong>.</p>
-    <div style="overflow-x:auto;margin:12px 0">
-      <table style="width:100%;border-collapse:collapse;font-size:14px">
-        <thead>
-          <tr style="text-align:left;border-bottom:1px solid var(--line);color:var(--muted)">
-            <th style="padding:8px 10px">Discovery</th>
-            <th style="padding:8px 10px">Type</th>
-            <th style="padding:8px 10px">Region</th>
-            <th style="padding:8px 10px">How to reach</th>
-            <th style="padding:8px 10px">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="5" style="padding:14px 10px;color:var(--muted)"><em>No locations verified yet — a row is added only after we confirm it in the released game.</em></td></tr>
-        </tbody>
-      </table>
+    <h2>GTA 6 location directory</h2>
+    <p>This is a <strong>searchable location directory</strong> — a filterable list of GTA 6 locations, <strong>not a zoomable interactive map with pins yet</strong>. It's built to hold stores, robberies, safes, collectibles, vehicles and other useful spots across Leonida, and it's seeded with the <strong>confirmed regions</strong> of the map as a reference. Specific entries (a particular store or safe) are added <strong>only once we can verify their position</strong> — we don't publish invented coordinates or leaked pins. Each entry carries a verification status and its source. The full interactive geographic map comes later.</p>
+    <div class="db-controls">
+      <input id="db-search" class="db-search" type="search" placeholder="Search locations… (e.g. Vice City, airport, raceway)" aria-label="Search locations">
     </div>
+    <div class="db-controls" id="db-chips"></div>
+    <div id="db-results"></div>
+    <p class="meta" id="db-count" style="margin-top:10px"></p>
+    <p class="meta">Want a verified location added? <a href="contact.html">Send it with a screenshot</a> and we'll confirm and credit it. Regions below are reported from mapping of Rockstar's official Leonida map; specific robbery, safe and collectible pins are pending our own in-game verification.</p>
 
     <div class="cta-box">
       <p><strong>The interactive collectibles map isn't live yet — it has no markers on it.</strong> We're building it on vendored, open-source mapping and will add <strong>verified</strong> locations only as we confirm them in-game, never placeholder markers. When it's ready it will let you filter collectibles by type and check off your progress.</p>
@@ -92,6 +98,95 @@
   <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="money-guide.html">Money</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="terms.html">Terms</a></p>
   <p>&copy; 2026 Loothub &mdash; fan-made GTA 6 guides.</p>
 </div></footer>
+<script>
+(function(){
+  // Location database. Seeded ONLY with verified/reported geographic reference
+  // (the confirmed regions + named landmarks). Specific store/robbery/safe/
+  // collectible/vehicle pins are added only once their in-game position is
+  // verified — never invented coordinates. Each row carries a source + status.
+  var SRC_MAP = {u:"https://www.pcgamer.com/games/grand-theft-auto/gta6-map", t:"PC Gamer — GTA 6 map"};
+  var SRC_MONEY = {u:"https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/", t:"PC Gamer — GTA 6 money"};
+  var DATA = [
+    {n:"Vice City", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"The Miami-inspired vacation capital in south-central Leonida. Contains districts such as Ocean Beach, Little Cuba and the Tisha-Wocka flea market, plus Vice City International Airport."},
+    {n:"Mount Kalaga", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"A national park on Leonida's northern border — billed for hunting, fishing and off-roading."},
+    {n:"Grassrivers", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"A wetland region with alligators and other predators."},
+    {n:"Leonida Keys", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"Island waters to the south, with a more southerly airport that may be a military base."},
+    {n:"Ambrosia", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"A one-company town built around the Allied Crystal sugar refinery and home to the Final Chapter biker gang."},
+    {n:"Port Gellhorn", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
+     info:"A struggling former-resort coast of motels and closed attractions, with industries tied to drugs, alcohol and energy drinks."},
+    {n:"Lummox County", cat:"region", region:"Leonida", status:"Reported", src:SRC_MONEY,
+     info:"A rural county reported as the base for hunting work (for a character named Bret). Region placement pending our own verification."},
+    {n:"Vice City International Airport", cat:"useful", region:"Vice City", status:"Reported landmark", src:SRC_MAP,
+     info:"The main airport within Vice City."},
+    {n:"Ambrosia Raceway", cat:"useful", region:"Ambrosia", status:"Reported landmark", src:SRC_MONEY,
+     info:"Reported home of repeatable Demolition Derby events — see the money guide for reported payouts."},
+    {n:"Lake Leonida", cat:"useful", region:"Leonida", status:"Reported landmark", src:SRC_MAP,
+     info:"Reported location of the One-Eyed Willie's mod shop."},
+    {n:"Watson Bay", cat:"useful", region:"Leonida", status:"Reported landmark", src:SRC_MAP,
+     info:"Believed location of the Paradise Garage."}
+  ];
+  var CATS = [["all","All"],["region","Regions"],["store","Stores"],["robbery","Robberies"],
+              ["safe","Safes"],["collectible","Collectibles"],["vehicle","Vehicles"],["useful","Useful"]];
+  var active="all", q="";
+  var chips=document.getElementById("db-chips"), results=document.getElementById("db-results"),
+      count=document.getElementById("db-count"), search=document.getElementById("db-search");
+  if(!chips) return;
+
+  CATS.forEach(function(c){
+    var b=document.createElement("button");
+    b.className="chip"+(c[0]==="all"?" on":""); b.textContent=c[1]; b.dataset.cat=c[0];
+    b.addEventListener("click",function(){active=c[0];
+      [].forEach.call(chips.children,function(x){x.classList.toggle("on",x.dataset.cat===active);});
+      render();});
+    chips.appendChild(b);
+  });
+  search.addEventListener("input",function(){q=search.value.trim().toLowerCase();render();});
+
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+  function catLabel(c){var f=CATS.filter(function(x){return x[0]===c;});return f.length?f[0][1].replace(/s$/,""):c;}
+
+  function render(){
+    results.textContent="";
+    var rows=DATA.filter(function(d){
+      if(active!=="all" && d.cat!==active) return false;
+      if(q){ return (d.n+" "+d.info+" "+d.region).toLowerCase().indexOf(q)>-1; }
+      return true;
+    });
+    if(!rows.length){
+      var empty=el("div","db-empty");
+      empty.innerHTML = active==="all"
+        ? "No locations match your search yet."
+        : "No verified <strong>"+catLabel(active).toLowerCase()+"</strong> entries yet — these are added only once we confirm their in-game position. Regions are available now as a reference.";
+      results.appendChild(empty);
+    } else {
+      rows.forEach(function(d){
+        var card=el("div","loc");
+        var head=el("div","lh");
+        head.appendChild(el("span","ln",d.n));
+        head.appendChild(el("span","lc",catLabel(d.cat)));
+        card.appendChild(head);
+        card.appendChild(el("div","li",d.info));
+        var s=el("div","ls");
+        s.appendChild(el("span","vstatus",d.status));
+        s.appendChild(document.createTextNode(" · "+d.region+" · "));
+        var a=el("a",null,"source"); a.href=d.src.u; a.target="_blank"; a.rel="noopener noreferrer"; a.title=d.src.t;
+        s.appendChild(a);
+        card.appendChild(s);
+        results.appendChild(card);
+      });
+    }
+    var total=DATA.filter(function(d){return active==="all"||d.cat===active;}).length;
+    count.textContent = rows.length+" shown"+(active==="all"?"":" in "+catLabel(active)+"s")+
+      " · "+DATA.length+" reference locations in the directory so far";
+  }
+  render();
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
