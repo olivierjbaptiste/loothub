@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GTA 6 Launch Planner: Choose an Edition &amp; Prepare | Loothub</title>
-<meta name="description" content="Plan for the GTA 6 launch with a platform and edition selector, an estimated US price, confirmed pre-load dates, and a personal checklist saved on your device.">
+<meta name="description" content="GTA 6 is out now. Choose a platform and edition with a selector, see an estimated US price, and save a personal setup checklist on your device.">
 <meta property="og:title" content="GTA 6 Launch Planner — Loothub">
 <meta property="og:description" content="Compare editions, understand code-in-box vs digital, and save your personal launch checklist.">
 <meta property="og:type" content="website">
@@ -23,12 +23,12 @@
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html">Loothub</a>
-  <nav class="nav">
+    <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="release-date.html">Release Date</a>
-    <a href="preorder.html">Pre-Order</a>
-    <a href="guides.html">Guides</a>
     <a href="map.html">Map</a>
+    <a href="money-guide.html">Money</a>
+    <a href="gameplay.html">Walkthroughs</a>
+    <a href="guides.html" class="on">Guides</a>
     <a href="about.html">About</a>
   </nav>
 </div></header>
@@ -38,7 +38,7 @@
   <article class="article launch-article">
     <span class="tag">Free planning tool · November 2026</span>
     <h1>Your GTA 6 launch plan</h1>
-    <p class="lead">Choose your console and edition, see the practical trade-offs, and build a checklist you can actually complete before November 19. No account needed.</p>
+    <p class="lead">GTA 6 is out now. Choose your console and edition, see the practical trade-offs, and build a setup checklist you can actually complete. No account needed.</p>
     <p class="meta">Information checked against Rockstar's official guidance · Last reviewed November 3, 2026</p>
 
     <div class="planner-facts" aria-label="Confirmed dates">
@@ -121,7 +121,7 @@
       <ol>
         <li><strong>Pick the correct console family.</strong> Rockstar has announced PS5 and Xbox Series X|S versions, not a PC or older-generation version.</li>
         <li><strong>Physical doesn't mean disc.</strong> The physical Standard package contains a download code, so you'll need to redeem it and download the game.</li>
-        <li><strong>Digital pre-loading begins November 10.</strong> PS5 pre-load starts at midnight local time; Xbox Series X|S pre-load starts globally at 12 a.m. GMT. Code-in-box copies are expected from November 12, and can be downloaded after the code is received and redeemed.</li>
+        <li><strong>Digital pre-loading ran from November 10.</strong> PS5 pre-load started at midnight local time; Xbox Series X|S pre-load started globally at 12 a.m. GMT. Code-in-box copies arrived from November 12, and download after the code is redeemed.</li>
         <li><strong>Free up space before pre-loading.</strong> Rockstar says the download needs up to 212 GB of available storage depending on your device.</li>
         <li><strong>Check your account's region.</strong> Rockstar advises matching a digital download code to the region of your platform account, particularly on PlayStation.</li>
         <li><strong>Check purchase bonuses carefully.</strong> Rockstar advertises the Vintage Vice City Pack for qualifying purchases before November 20 and a GTA+ month for eligible digital buyers. Review the offer terms in your region.</li>
@@ -145,24 +145,10 @@
 <footer><div class="wrap">
   <p class="dis">Loothub is an unofficial fan-made site. Not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive.
   "Grand Theft Auto", "GTA" and all related names are trademarks of their respective owners. All game information is drawn from official Rockstar announcements and reputable reporting; where something is unconfirmed we say so.</p>
-  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="preorder.html">Pre-Order</a> &middot; <a href="launch-planner.html">Launch Planner</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="terms.html">Terms</a></p>
+  <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="money-guide.html">Money</a> &middot; <a href="launch-planner.html">Launch Planner</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="terms.html">Terms</a></p>
   <p>&copy; 2026 Loothub &mdash; fan-made GTA 6 guides.</p>
 </div></footer>
 
-<script>
-(function(){
-  var el=document.getElementById('countdown'); if(!el) return;
-  var launch=new Date('2026-11-19T00:00:00-05:00');
-  function upd(){
-    var diff=launch-new Date();
-    if(diff<=0){ el.textContent='GTA 6 is out now!'; return; }
-    var d=Math.floor(diff/86400000);
-    var h=Math.floor((diff%86400000)/3600000);
-    el.textContent=d+' days, '+h+' hours to launch';
-  }
-  upd(); setInterval(upd,60000);
-})();
-</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

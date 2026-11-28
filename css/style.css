@@ -22,7 +22,7 @@ a{color:var(--cyan);text-decoration:none}
 
 /* header / nav */
 .top{border-bottom:1px solid var(--line);background:rgba(12,10,24,.7);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:10px 16px;flex-wrap:wrap;padding:8px 0}
 .brand{font-family:"Oswald",sans-serif;font-weight:700;font-size:24px;letter-spacing:1px;text-transform:uppercase;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .nav{display:flex;gap:20px;flex-wrap:wrap}
