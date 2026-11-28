@@ -36,6 +36,51 @@
 .db-empty{color:var(--muted);text-align:center;padding:22px 10px;border:1px dashed var(--line);border-radius:10px}
 .vstatus{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;border:1px solid var(--line);color:var(--muted)}
 </style>
+<link rel="stylesheet" href="vendor/leaflet.css">
+<style>
+.lm-note{background:rgba(255,211,78,.08);border:1px solid #4a3f1a;color:#e9dca0;border-radius:10px;padding:10px 14px;font-size:13px;margin:12px 0}
+.lm-controls{margin:12px 0 8px}
+.lm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.lm-chip{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer}
+.lm-chip.on{color:var(--text);border-color:var(--purple)}
+.lm-chip:not(.on){opacity:.5}
+.lm-chip-all.on{background:var(--grad);border:none;color:#fff}
+.lm-layout{display:grid;grid-template-columns:1fr 300px;gap:14px;align-items:stretch}
+.lm-map{height:520px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden;z-index:0}
+.lm-map:focus{outline:2px solid var(--purple);outline-offset:2px}
+.lm-info{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px;overflow:auto;max-height:520px}
+.lm-info-empty{color:var(--muted)}
+.lm-info-h{display:flex;align-items:center;gap:8px;font-size:16px;margin-bottom:8px}
+.lm-info-m{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.lm-info-d{color:var(--text);margin:8px 0}
+.lm-info-f{color:var(--muted);font-size:12px;margin-top:10px}
+.lm-approx{background:rgba(255,211,78,.08);border:1px solid #4a3f1a;color:#e9dca0;border-radius:8px;padding:8px 10px;font-size:12px;margin:8px 0}
+.lm-shot{width:100%;border-radius:8px;border:1px solid var(--line);margin:8px 0}
+.lm-dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:0 0 auto}
+.lm-tag{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.lm-badge{font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;text-transform:uppercase;letter-spacing:.3px;border:1px solid var(--line)}
+.lm-b-official{color:var(--cyan);border-color:#1d4a4c}
+.lm-b-reported{color:var(--muted)}
+.lm-b-verified{color:var(--good);border-color:#2d6a4f}
+.lm-legend-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 6px}
+.lm-legend-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.lm-legend{display:flex;gap:14px;flex-wrap:wrap}
+.lm-leg{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.lm-leg-pin{position:static;width:15px;height:15px}
+.lm-dir{display:grid;gap:8px;margin:10px 0}
+.lm-row{text-align:left;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--text);font-family:inherit;width:100%}
+.lm-row.on{border-color:var(--purple)}
+.lm-row-h{display:flex;align-items:center;gap:8px}
+.lm-row-n{font-weight:700;flex:1}
+.lm-row-s{color:var(--muted);font-size:12px;margin-top:4px}
+.lm-empty{color:var(--muted);text-align:center;padding:20px;border:1px dashed var(--line);border-radius:10px}
+.lm-pin{display:flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--c);border:2px solid #0c0a18;box-shadow:0 0 0 1px var(--c);color:#0c0a18;font-weight:800;font-size:12px}
+.lm-reported{background:transparent;border:2px solid var(--c);box-shadow:none}
+.lm-verified{box-shadow:0 0 0 2px var(--c),0 0 8px var(--c)}
+.lm-sel{transform:scale(1.35)}
+@media(max-width:720px){.lm-layout{grid-template-columns:1fr}.lm-map{height:60vh;min-height:320px}.lm-info{max-height:none}}
+@media(prefers-reduced-motion:reduce){.lm-sel{transform:none}}
+</style>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5921034205011428" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -75,20 +120,40 @@
     <h2>How big is the map?</h2>
     <p>Rockstar has not published official map dimensions. We'll only add figures here once there's an official source or a verified in-game measurement — not an estimate or a leaked number.</p>
 
-    <h2>GTA 6 location directory</h2>
-    <p>This is a <strong>searchable location directory</strong> — a filterable list of GTA 6 locations, <strong>not a zoomable interactive map with pins yet</strong>. It's built to hold stores, robberies, safes, collectibles, vehicles and other useful spots across Leonida, and it's seeded with the <strong>confirmed regions</strong> of the map as a reference. Specific entries (a particular store or safe) are added <strong>only once we can verify their position</strong> — we don't publish invented coordinates or leaked pins. Each entry carries a verification status and its source. The full interactive geographic map comes later.</p>
-    <div class="db-controls">
-      <input id="db-search" class="db-search" type="search" placeholder="Search locations… (e.g. Vice City, airport, raceway)" aria-label="Search locations">
-    </div>
-    <div class="db-controls" id="db-chips"></div>
-    <div id="db-results"></div>
-    <p class="meta" id="db-count" style="margin-top:10px"></p>
-    <p class="meta">Want a verified location added? <a href="contact.html">Send it with a screenshot</a> and we'll confirm and credit it. Regions below are reported from mapping of Rockstar's official Leonida map; specific robbery, safe and collectible pins are pending our own in-game verification.</p>
+    <h2>Interactive Leonida map</h2>
+    <p>An early, zoomable map of Leonida you can drag and explore. The base below is <strong>our own schematic — illustrative and not to scale</strong>, not Rockstar's copyrighted map. It's seeded with the six <strong>officially named regions</strong>. Their <strong>names are confirmed, but their positions on this schematic are our approximate estimate — not verified in-game coordinates</strong>. Specific gameplay markers (banks, stores, robberies…) are added only once we verify their position in-game, and we never place invented pins.</p>
 
-    <div class="cta-box">
-      <p><strong>The interactive collectibles map isn't live yet — it has no markers on it.</strong> We're building it on vendored, open-source mapping and will add <strong>verified</strong> locations only as we confirm them in-game, never placeholder markers. When it's ready it will let you filter collectibles by type and check off your progress.</p>
-      <a class="cta" href="characters.html">Meet the characters of Leonida</a>
+    <div class="lm-note">⚠ Temporary schematic base. Rockstar's official GTA 6 map is copyrighted and actively enforced, so we don't republish it — this stylised schematic stands in until an officially licensed or clearly permitted map asset is available. More under "About this map" below.</div>
+
+    <div class="lm-controls">
+      <input id="lm-search" class="db-search" type="search" placeholder="Search locations… (e.g. Vice City, Ambrosia, airport)" aria-label="Search locations">
     </div>
+    <div class="lm-chips" id="lm-cats" role="group" aria-label="Filter locations by category"></div>
+
+    <div class="lm-layout">
+      <div id="lm-map" class="lm-map" tabindex="0" role="application" aria-label="Interactive map of Leonida (drag to pan, use + and - to zoom)"></div>
+      <aside id="lm-info" class="lm-info" aria-live="polite" aria-label="Selected location details"></aside>
+    </div>
+    <div class="lm-legend-row">
+      <span class="lm-legend-label">Verification</span>
+      <span id="lm-legend" class="lm-legend"></span>
+    </div>
+
+    <h2>Location directory</h2>
+    <p class="sec-sub">The same locations as a searchable list — handy on small screens and for entries we haven't placed on the map yet. The search and category filters above control both the map and this list.</p>
+    <p class="meta" id="lm-count"></p>
+    <div id="lm-dir" class="lm-dir"></div>
+    <p class="meta">Want a verified location added? <a href="contact.html">Send it with a screenshot</a> and we'll confirm it, place it, and credit you. Regions come from mapping of Rockstar's official Leonida map; gameplay pins are pending our own in-game verification.</p>
+
+    <h2>About this map</h2>
+    <p>This is the foundation of our interactive map: the engine, categories, search, filters and info panels all work on a clearly-labeled temporary base. We've deliberately not flooded it with unverified markers.</p>
+    <ul>
+      <li><strong>Why a schematic?</strong> Take-Two actively enforces copyright on GTA 6 map imagery, so we don't republish Rockstar's map. Our schematic is original and illustrative, not to scale.</li>
+      <li><strong>Region positions are approximate.</strong> The six region <em>names</em> are officially confirmed, but we've placed them on the schematic by eye — those coordinates are not verified in-game positions, and the map tells you so when you open a region.</li>
+      <li><strong>Adding a real map later</strong> needs an officially licensed or clearly permitted map asset. Swapping the base is <em>not</em> just replacing the image: you also have to <strong>recalibrate every marker's coordinates</strong> to the new image's pixel space and update its width/height in the dataset, because each marker is positioned against the current base.</li>
+      <li><strong>On Rockstar's official map poster:</strong> Rockstar does offer a downloadable Leonida map, but its <a href="https://support.rockstargames.com/en-US/articles/7bNaeoMFTV0iUDGhStTXvz/policy-on-posting-copyrighted-rockstar-games-material" target="_blank" rel="noopener noreferrer">fan-content policy</a> covers only <em>non-commercial</em> use of in-game footage by individual fans and doesn't address reusing official artwork. Because this site runs ads, using that poster would likely fall outside that policy — so we won't use it without written permission (licensing requests go to copyright@take2games.com).</li>
+      <li><strong>Every marker carries a status:</strong> Official (name confirmed by Rockstar), Reported (third-party source), or Verified by LootHub (we confirmed its position in-game). We add a precise pin only once a position is verified.</li>
+    </ul>
   </article>
 </main>
 
@@ -98,95 +163,9 @@
   <p style="margin-bottom:10px"><a href="about.html">About</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="money-guide.html">Money</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a> &middot; <a href="terms.html">Terms</a></p>
   <p>&copy; 2026 Loothub &mdash; fan-made GTA 6 guides.</p>
 </div></footer>
-<script>
-(function(){
-  // Location database. Seeded ONLY with verified/reported geographic reference
-  // (the confirmed regions + named landmarks). Specific store/robbery/safe/
-  // collectible/vehicle pins are added only once their in-game position is
-  // verified — never invented coordinates. Each row carries a source + status.
-  var SRC_MAP = {u:"https://www.pcgamer.com/games/grand-theft-auto/gta6-map", t:"PC Gamer — GTA 6 map"};
-  var SRC_MONEY = {u:"https://www.pcgamer.com/games/grand-theft-auto/gta-6-how-to-make-money/", t:"PC Gamer — GTA 6 money"};
-  var DATA = [
-    {n:"Vice City", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"The Miami-inspired vacation capital in south-central Leonida. Contains districts such as Ocean Beach, Little Cuba and the Tisha-Wocka flea market, plus Vice City International Airport."},
-    {n:"Mount Kalaga", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"A national park on Leonida's northern border — billed for hunting, fishing and off-roading."},
-    {n:"Grassrivers", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"A wetland region with alligators and other predators."},
-    {n:"Leonida Keys", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"Island waters to the south, with a more southerly airport that may be a military base."},
-    {n:"Ambrosia", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"A one-company town built around the Allied Crystal sugar refinery and home to the Final Chapter biker gang."},
-    {n:"Port Gellhorn", cat:"region", region:"Leonida", status:"Confirmed region", src:SRC_MAP,
-     info:"A struggling former-resort coast of motels and closed attractions, with industries tied to drugs, alcohol and energy drinks."},
-    {n:"Lummox County", cat:"region", region:"Leonida", status:"Reported", src:SRC_MONEY,
-     info:"A rural county reported as the base for hunting work (for a character named Bret). Region placement pending our own verification."},
-    {n:"Vice City International Airport", cat:"useful", region:"Vice City", status:"Reported landmark", src:SRC_MAP,
-     info:"The main airport within Vice City."},
-    {n:"Ambrosia Raceway", cat:"useful", region:"Ambrosia", status:"Reported landmark", src:SRC_MONEY,
-     info:"Reported home of repeatable Demolition Derby events — see the money guide for reported payouts."},
-    {n:"Lake Leonida", cat:"useful", region:"Leonida", status:"Reported landmark", src:SRC_MAP,
-     info:"Reported location of the One-Eyed Willie's mod shop."},
-    {n:"Watson Bay", cat:"useful", region:"Leonida", status:"Reported landmark", src:SRC_MAP,
-     info:"Believed location of the Paradise Garage."}
-  ];
-  var CATS = [["all","All"],["region","Regions"],["store","Stores"],["robbery","Robberies"],
-              ["safe","Safes"],["collectible","Collectibles"],["vehicle","Vehicles"],["useful","Useful"]];
-  var active="all", q="";
-  var chips=document.getElementById("db-chips"), results=document.getElementById("db-results"),
-      count=document.getElementById("db-count"), search=document.getElementById("db-search");
-  if(!chips) return;
-
-  CATS.forEach(function(c){
-    var b=document.createElement("button");
-    b.className="chip"+(c[0]==="all"?" on":""); b.textContent=c[1]; b.dataset.cat=c[0];
-    b.addEventListener("click",function(){active=c[0];
-      [].forEach.call(chips.children,function(x){x.classList.toggle("on",x.dataset.cat===active);});
-      render();});
-    chips.appendChild(b);
-  });
-  search.addEventListener("input",function(){q=search.value.trim().toLowerCase();render();});
-
-  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
-  function catLabel(c){var f=CATS.filter(function(x){return x[0]===c;});return f.length?f[0][1].replace(/s$/,""):c;}
-
-  function render(){
-    results.textContent="";
-    var rows=DATA.filter(function(d){
-      if(active!=="all" && d.cat!==active) return false;
-      if(q){ return (d.n+" "+d.info+" "+d.region).toLowerCase().indexOf(q)>-1; }
-      return true;
-    });
-    if(!rows.length){
-      var empty=el("div","db-empty");
-      empty.innerHTML = active==="all"
-        ? "No locations match your search yet."
-        : "No verified <strong>"+catLabel(active).toLowerCase()+"</strong> entries yet — these are added only once we confirm their in-game position. Regions are available now as a reference.";
-      results.appendChild(empty);
-    } else {
-      rows.forEach(function(d){
-        var card=el("div","loc");
-        var head=el("div","lh");
-        head.appendChild(el("span","ln",d.n));
-        head.appendChild(el("span","lc",catLabel(d.cat)));
-        card.appendChild(head);
-        card.appendChild(el("div","li",d.info));
-        var s=el("div","ls");
-        s.appendChild(el("span","vstatus",d.status));
-        s.appendChild(document.createTextNode(" · "+d.region+" · "));
-        var a=el("a",null,"source"); a.href=d.src.u; a.target="_blank"; a.rel="noopener noreferrer"; a.title=d.src.t;
-        s.appendChild(a);
-        card.appendChild(s);
-        results.appendChild(card);
-      });
-    }
-    var total=DATA.filter(function(d){return active==="all"||d.cat===active;}).length;
-    count.textContent = rows.length+" shown"+(active==="all"?"":" in "+catLabel(active)+"s")+
-      " · "+DATA.length+" reference locations in the directory so far";
-  }
-  render();
-})();
-</script>
+<script src="vendor/leaflet.js"></script>
+<script src="data/leonida-locations.js"></script>
+<script src="js/leonida-map.js"></script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "abbf75f82e0f44bbbcca2904a73602f3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
